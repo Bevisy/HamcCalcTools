@@ -1,0 +1,18 @@
+language: go
+
+go:
+  - 1.14.2
+
+arch:
+  - amd64
+  - arm64
+
+services:
+  - docker
+
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#  - make test
+  - make
+  - docker build . -t $DOCKER_USERNAME/hmacCalcTools:$(uname -p)
+  - docker push $DOCKER_USERNAME/hmacCalcTools:$(uname -p)
