@@ -69,5 +69,10 @@ func main() {
 
 	})
 
+	// 添加健康性检查接口
+	r.GET("/health", func(c *gin.Context) {
+		c.String(http.StatusOK, "ok")
+	})
+
 	r.RunTLS("127.0.0.1:8080", certFile, keyFile)
 }
