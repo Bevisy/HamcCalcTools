@@ -1,4 +1,6 @@
 # HamcCalcTools
+[![Build Status](https://travis-ci.org/Bevisy/HamcCalcTools.svg?branch=master)](https://travis-ci.org/github/Bevisy/HamcCalcTools)  
+  
 Hmac 计算工具
 
 # 功能
