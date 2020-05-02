@@ -25,4 +25,4 @@ docker_build:
 	docker run --rm -i -t -v $(PWD):/v -w /v golang make
 
 docker_image:
-	docker build . -t bevisy/hmacCalcTools:$(TAG)
+	docker build . -t bevisy/hmac_calc_tools:$(TAG)

@@ -11,8 +11,8 @@ services:
   - docker
 
 script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 #  - make test
   - make
-  - docker build . -t $DOCKER_USERNAME/hmacCalcTools:$(uname -p)
-  - docker push $DOCKER_USERNAME/hmacCalcTools:$(uname -p)
+  - docker build -t ${DOCKER_USERNAME}/hmac_calc_tools:$(uname -p) .
+  - docker push ${DOCKER_USERNAME}/hmac_calc_tools:$(uname -p)
