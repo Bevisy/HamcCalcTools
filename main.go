@@ -2,6 +2,7 @@ package main
 
 import (
 	"HmacCalcTools/utils"
+	"encoding/base64"
 	"flag"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -14,7 +15,8 @@ func main() {
 
 	r := gin.Default()
 
-	r.GET("/hmac", func(c *gin.Context) {
+	// 计算 hmac 值，返回值类型为 []byte
+	r.POST("/hmac", func(c *gin.Context) {
 		algorithm := c.DefaultQuery("algorithm", "hmac-sha1")
 		key := c.DefaultQuery("key", "")
 		message := c.Query("msg")
@@ -50,6 +52,19 @@ func main() {
 			})
 		default:
 			c.String(http.StatusBadRequest, "Unknown algorithm type: %s\n", algorithm)
+		}
+
+	})
+	// 计算 base64
+	r.POST("/base64", func(c *gin.Context) {
+		msg := c.Query("message")
+		if msg == "" {
+			c.String(http.StatusBadRequest, "The param:message can't be nil")
+		} else {
+			c.JSON(http.StatusOK, gin.H{
+				"message": msg,
+				"base64":  base64.StdEncoding.EncodeToString([]byte(msg)),
+			})
 		}
 
 	})
