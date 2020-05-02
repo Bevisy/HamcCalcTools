@@ -55,7 +55,7 @@ func main() {
 		}
 
 	})
-	// 计算 base64
+	// 计算 base64,返回类型 sting
 	r.POST("/base64", func(c *gin.Context) {
 		msg := c.Query("message")
 		if msg == "" {
