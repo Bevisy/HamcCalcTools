@@ -6,6 +6,12 @@ Hmac 计算工具
 
 # 接口设计
 ```shell script
-GET /hmac
-
+POST /hmac?message=cloudos&key=cloudos&algorithm=hmac-sha256
+Return:
+{
+  "message":   message,
+  "key":       key,
+  "algorithm": algorithm,
+  "HMAC-SHA1": {hash value},
+}
 ```

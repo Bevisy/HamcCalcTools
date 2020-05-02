@@ -13,6 +13,7 @@ import (
 func GenHmacSha1(message, key string) []byte {
 	k := []byte(key)
 	h := hmac.New(sha1.New, k)
+	//h.Write([]byte(message)) // 此种方式也可以
 	if _, err := io.WriteString(h, message); err != nil {
 		log.Fatalf("HMAC-SHA1 error: %s\n", err)
 	}
