@@ -1,4 +1,4 @@
-module HmacCalcTools
+module github.com/Bevisy/HmacCalcTools
 
 go 1.14
 

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"HmacCalcTools/utils"
 	"encoding/base64"
 	"flag"
+	"github.com/Bevisy/HmacCalcTools/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
